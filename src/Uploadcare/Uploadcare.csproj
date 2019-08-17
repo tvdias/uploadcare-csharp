@@ -9,6 +9,7 @@
     <RepositoryUrl>https://github.com/tvdias/uploadcare-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>uploadcare</PackageTags>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
