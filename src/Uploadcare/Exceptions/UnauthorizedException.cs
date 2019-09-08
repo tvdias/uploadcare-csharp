@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Uploadcare.Exceptions
 {
     [Serializable]
-    internal class UnauthorizedException : UploadcareException
+    public class UnauthorizedException : UploadcareException
     {
         public UnauthorizedException()
         {

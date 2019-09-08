@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Uploadcare.Exceptions
 {
     [Serializable]
-    internal class InvalidRequestException : UploadcareException
+    public class InvalidRequestException : UploadcareException
     {
         public InvalidRequestException()
         {

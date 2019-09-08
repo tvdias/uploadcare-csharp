@@ -14,11 +14,11 @@ namespace Uploadcare.DTO
 
         public int Width { get; set; }
 
-        public string GeoLocation { get; set; }
+        public GeoLocation GeoLocation { get; set; }
 
         public DateTime? DatetimeOriginal { get; set; }
 
-        public int[] Dpi { get; set; }
+        public decimal[] Dpi { get; set; }
 
         public bool Sequence { get; set; }
     }

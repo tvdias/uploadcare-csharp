@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Uploadcare.Exceptions
 {
     [Serializable]
-    internal class NotFoundException : UploadcareException
+    public class NotFoundException : UploadcareException
     {
         public NotFoundException()
         {
