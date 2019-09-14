@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     
     steps:
@@ -19,7 +18,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
-    - name: Build with dotnet
+    - name: Pack NuGet Package
       run: |
         cd src
-        dotnet build --configuration Release
+        dotnet pack -c Release -o nuget_packages /p:Version=$(cat ./version.txt)
+    - name: Push NuGet Package
+      run: dotnet nuget push ./nuget_packages/*.nupkg -k ${{ secrets.NUGET_TOKEN }}
