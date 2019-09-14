@@ -15,7 +15,7 @@ jobs:
     - name: Print Version
       run: cat ./version.txt
     - name: Tag repository
-      run: git push origin $(cat ./version.txt)
+      run: git tag $(cat ./version.txt) && git push origin $(cat ./version.txt)
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
