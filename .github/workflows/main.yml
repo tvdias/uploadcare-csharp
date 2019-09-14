@@ -14,7 +14,7 @@ jobs:
       with:
         args: /github/workspace /nofetch /exec /bin/sh /execargs "-c \"echo $GitVersion_FullSemVer > /github/workspace/version.txt\""
     - name: Print Version
-      run: find . -name "version.txt"
+      run: cat ./version.txt
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
