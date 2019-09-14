@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Get GitVersion
-      uses: docker://gittools/gitversion:5.0.2-beta1-27-linux-centos-7-netcoreapp2.2
+      uses: docker://gittools/gitversion:5.0.2-linux-centos-7-netcoreapp2.2
       with:
         args: /github/workspace /nofetch /exec /bin/sh /execargs "-c \"echo $GitVersion_FullSemVer > /github/workspace/version.txt\""
     - name: Print Version
@@ -19,8 +19,6 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Pack NuGet Package
-      run: |
-        cd src
-        dotnet pack -c Release -o nuget_packages /p:Version=$(cat ./version.txt)
+      run: dotnet pack src/*.sln -c Release -o nuget_packages /p:Version=$(cat ./version.txt)
     - name: Push NuGet Package
       run: dotnet nuget push ./nuget_packages/*.nupkg -k ${{ secrets.NUGET_TOKEN }}
