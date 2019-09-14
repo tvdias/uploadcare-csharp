@@ -21,4 +21,4 @@ jobs:
     - name: Pack NuGet Package
       run: dotnet pack src/*.sln -c Release -o nuget_packages /p:Version=$(cat ./version.txt)
     - name: Push NuGet Package
-      run: dotnet nuget push ./nuget_packages/*.nupkg -k ${{ secrets.NUGET_TOKEN }}
+      run: dotnet nuget push ./nuget_packages/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_TOKEN }}
