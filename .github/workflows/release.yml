@@ -16,7 +16,7 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Pack NuGet Package
-      run: dotnet pack src/Uploadcare.sln -c Release -o ./nuget_packages /p:Version=($VERSION)
+      run: dotnet pack src/Uploadcare.sln -c Release -o ./nuget_packages /p:Version=${{ VERSION }}
       env:
         VERSION: git rev-parse --abbrev-ref HEAD | grep -o '[.0-9]*'
     - name: Push NuGet Package
