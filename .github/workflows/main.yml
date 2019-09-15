@@ -17,7 +17,9 @@ jobs:
       uses: tvdias/github-tagger@v0.0.1
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        tag: "$(cat ./version.txt)"
+        tag: $VERSION
+      env:
+        VERSION: "v$(cat ./version.txt)"
     - name: Tag repository
       run: git tag $(cat ./version.txt) && git push origin $(cat ./version.txt)
     - name: Setup .NET Core
