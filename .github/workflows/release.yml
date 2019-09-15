@@ -2,6 +2,8 @@ name: release
 
 on:
   push:
+    branches:
+    - release/*
     tags:        
       - v*
 
@@ -16,8 +18,6 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Pack NuGet Package
-      run: dotnet pack src/Uploadcare.sln -c Release -o ./nuget_packages /p:Version=${{ VERSION }}
-      env:
-        VERSION: git rev-parse --abbrev-ref HEAD | grep -o '[.0-9]*'
+      run: dotnet pack src/Uploadcare.sln -c Release -o ./nuget_packages /p:Version=$(git rev-parse --abbrev-ref HEAD | grep -o '[.0-9]*')
     - name: Push NuGet Package
       run: dotnet nuget push src/Uploadcare/**/*.nupkg -n true -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
