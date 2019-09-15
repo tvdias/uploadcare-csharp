@@ -17,7 +17,7 @@ jobs:
       uses: tvdias/github-tagger@v0.0.1
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        tag: ${{ VERSION }}
+        tag: $(VERSION)
       env:
         VERSION: "v$(cat ./version.txt)"
     - name: Tag repository
