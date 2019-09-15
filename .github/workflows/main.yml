@@ -1,32 +1,15 @@
-name: CI
+name: main
 
-on: [push]
+on: [pull_request, push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Get GitVersion
-      uses: docker://gittools/gitversion:5.0.2-linux-centos-7-netcoreapp2.2
-      with:
-        args: /github/workspace /nofetch /exec /bin/sh /execargs "-c \"echo $GitVersion_NuGetVersionV2 > /github/workspace/version.txt\""
-    - name: Print Version
-      run: cat ./version.txt
-    - name: Tag commit
-      uses: tvdias/github-tagger@v0.0.1
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        tag: $(VERSION)
-      env:
-        VERSION: "v$(cat ./version.txt)"
-    - name: Tag repository
-      run: git tag $(cat ./version.txt) && git push origin $(cat ./version.txt)
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
     - name: Pack NuGet Package
       run: dotnet pack src/Uploadcare.sln -c Release -o ./nuget_packages /p:Version=$(cat ./version.txt)
-    - name: Push NuGet Package
-      run: dotnet nuget push src/Uploadcare/**/*.nupkg -n true -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
