@@ -15,7 +15,7 @@ jobs:
     - name: Print Version
       run: cat ./version.txt
     - name: Tag commit
-      uses: tvdias/github-tagger@master
+      uses: tvdias/github-tagger@v0.0.1
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         tag: $(cat ./version.txt)
