@@ -16,6 +16,6 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Pack NuGet Package
-      run: dotnet pack src/Uploadcare.sln -c Release -o ./nuget_packages /p:Version=${{ GITHUB_REF }}
+      run: dotnet pack src/Uploadcare.sln -c Release -o ./nuget_packages /p:Version=${GITHUB_REF}
     - name: Push NuGet Package
       run: dotnet nuget push src/Uploadcare/**/*.nupkg -n true -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
