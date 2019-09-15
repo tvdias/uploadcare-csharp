@@ -12,4 +12,4 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Pack NuGet Package
-      run: dotnet pack src/Uploadcare.sln -c Release -o ./nuget_packages /p:Version=$(cat ./version.txt)
+      run: dotnet pack src/Uploadcare.sln -c Release -o ./nuget_packages
