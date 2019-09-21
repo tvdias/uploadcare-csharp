@@ -149,6 +149,18 @@ namespace Uploadcare
             }
         }
 
+        /// <summary>
+        /// Marks a file as saved
+        /// </summary>
+        /// <param name="sourceFileId">UUID of a file subjected to copy.</param>
+        /// <remarks>This has to be done for all files you want to keep. Unsaved files are eventually purged.</remarks>
+        public async Task<CopyResult> SaveAsync(Guid sourceFileId)
+        {
+            var sourceString = sourceFileId.ToString();
+
+            return await this.CopyInternal(sourceString, null, null, true, null).ConfigureAwait(false);
+        }
+
         public async Task<StoreResult> StoreAsync(Guid imageId)
         {
             using (var request = new HttpRequestMessage(HttpMethod.Put, UrlHelper.ApiFilesStorage()))
