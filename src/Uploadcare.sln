@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uploadcare", "Uploadcare\Uploadcare.csproj", "{C5C554C2-2A12-4C12-9601-674D92179722}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uploadcare.Tests", "Uploadcare.Tests\Uploadcare.Tests.csproj", "{264EEE61-4EE7-4444-AC81-A2946E2F2154}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C5C554C2-2A12-4C12-9601-674D92179722}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5C554C2-2A12-4C12-9601-674D92179722}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5C554C2-2A12-4C12-9601-674D92179722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{264EEE61-4EE7-4444-AC81-A2946E2F2154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{264EEE61-4EE7-4444-AC81-A2946E2F2154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{264EEE61-4EE7-4444-AC81-A2946E2F2154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{264EEE61-4EE7-4444-AC81-A2946E2F2154}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
