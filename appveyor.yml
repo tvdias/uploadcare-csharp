@@ -9,7 +9,6 @@ assembly_info:
   patch: false
 
 before_build:
-  - nuget restore
   - ps: gitversion /l console /output buildserver
 
 build_script:
